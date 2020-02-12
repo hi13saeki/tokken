@@ -1,0 +1,4 @@
+File 'totient.c'
+Lines executed:90.48% of 21
+Creating 'totient.c.gcov'
+

@@ -1,0 +1,41 @@
+        -:    0:Source:quadeq.c
+        -:    0:Graph:quadeq.gcno
+        -:    0:Data:quadeq.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:/***********************************************************
+        -:    2:    quadeq.c -- 2次方程式
+        -:    3:***********************************************************/
+        -:    4:#include <stdio.h>
+        -:    5:#include <stdlib.h>
+        -:    6:#include <math.h>
+        1:    7:int main(void)
+        -:    8:{
+        -:    9:    int ai, bi, ci; 
+        -:   10:	double a, b, c, d, x;
+        -:   11:
+        1:   12:    printf("a = ");  scanf("%d", &ai);
+        1:   13:    printf("b = ");  scanf("%d", &bi);
+        1:   14:    printf("c = ");  scanf("%d", &ci);
+        1:   15:	a=(double)ai;
+        1:   16:	b=(double)bi;
+        1:   17:	c=(double)ci;
+        1:   18:    if (a != 0) {
+        1:   19:        b /= a;  c /= a;     /* $a$ で割って $x^2 + bx + c = 0$ の形にする */
+        1:   20:        if (c != 0) {
+    #####:   21:            b /= 2;          /* $x^2 + 2b'x + c = 0$ */
+    #####:   22:            d = b * b - c;   /* 判別式 $D / 4$ */
+    #####:   23:            if (d > 0) {
+    #####:   24:                if (b > 0) x = -b - sqrt(d);
+    #####:   25:                else       x = -b + sqrt(d);
+    #####:   26:                printf("x = %g, %g\n", x, c / x);
+    #####:   27:            } else if (d < 0)
+    #####:   28:                printf("x = %g +- %g i\n", -b, sqrt(-d));
+        -:   29:            else
+    #####:   30:                printf("x = %g\n", -b);
+        1:   31:        } else printf("x = %g, 0\n", -b);
+    #####:   32:    } else if (b != 0) printf("x = %g\n", -c / b);
+    #####:   33:    else if (c != 0) printf("解なし.\n");
+    #####:   34:    else printf("不定.\n");
+        1:   35:    return 0;
+        -:   36:}

@@ -1,0 +1,11 @@
+2019/11/20現在
+test_case.pyとgcov.shが複数入力対応の最新版
+angr対応のshellをangr_gcov.shとする
+
+2019/11/28
+proj = angr.Project("./totient")
+irsb = proj.factory.block(address).vex
+for stmt in irsb.statements:
+    stmt.pp()
+これで先頭アドレスで指定した地点からの基本ブロックの情報を表示できる
+これの一番最後のIMarkの引数のひとつ目のアドレスとふたつ目の数字を足すと次の基本ブロックの先頭アドレスが手に入る

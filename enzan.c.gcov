@@ -1,0 +1,29 @@
+        -:    0:Source:enzan.c
+        -:    0:Graph:enzan.gcno
+        -:    0:Data:enzan.gcda
+        -:    0:Runs:2
+        -:    0:Programs:1
+        -:    1:#include<stdio.h>
+        -:    2:
+        1:    3:void ok(){
+        1:    4:	printf("ok\n");
+        1:    5:}
+        2:    6:int main(void){
+        -:    7:	int da,db,kasan;
+        2:    8:	printf("実数daを入力してください:");
+        2:    9:	scanf("%d",&da);
+        2:   10:	printf("実数dbを入力してください:");
+        2:   11:	scanf("%d",&db);
+        2:   12:	printf("da + db:    %d\n",da+db);
+        2:   13:	printf("da - db:    %d\n",da-db);
+        2:   14:	printf("da * db:    %d\n",da*db);
+        2:   15:	if(db != 0){
+        1:   16:		printf("da / db:    %d\n",da/db);
+        1:   17:	}else if (db == 0){
+        1:   18:		printf("計算できません\n");
+        -:   19:	}
+        2:   20:    if(da==10){
+        1:   21:		ok();
+        -:   22:	}
+        2:   23:	return 0;
+        -:   24:}

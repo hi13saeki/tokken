@@ -1,0 +1,33 @@
+        -:    0:Source:factoriz.c
+        -:    0:Graph:factoriz.gcno
+        -:    0:Data:factoriz.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+    #####:    3:void win() { puts("win!");}
+        1:    4:void lose() { puts("lose");}
+        -:    5:
+        1:    6:void check(int x) {
+        -:    7:	int d, q;
+        7:    8:	while (x >= 4 && x % 2 == 0) {
+        5:    9:		x /= 2;
+        -:   10:	}
+        1:   11:	d = 3;
+        1:   12:	q = x / d;
+      125:   13:	while (q >= d) {
+      123:   14:		if (x % d == 0) {
+        4:   15:			if(d == 5) {win(); return;}
+        4:   16:			x = q;
+      119:   17:		} else d += 2;
+      123:   18:		q = x / d;
+        -:   19:	}
+        1:   20:	lose();
+        -:   21:}
+        -:   22:
+        1:   23:int main(int argc, char *argv[]) {
+        -:   24:	int i;
+        1:   25:	scanf("%d", &i);
+        1:   26:	check(i);
+        1:   27:	return 0;
+        -:   28:}

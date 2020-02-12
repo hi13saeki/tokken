@@ -1,0 +1,45 @@
+        -:    0:Source:totient.c
+        -:    0:Graph:totient.gcno
+        -:    0:Data:totient.gcda
+        -:    0:Runs:2
+        -:    0:Programs:1
+        1:    1:unsigned phi(unsigned x)
+        -:    2:{
+        -:    3:    unsigned d, t;
+        -:    4:
+        1:    5:    t = x;
+        1:    6:    if (x % 2 == 0) {
+        1:    7:        t /= 2;
+        2:    8:        do {  x /= 2;  } while (x % 2 == 0);
+        -:    9:    }
+        1:   10:    d = 3;
+      100:   11:    while (x / d >= d) {
+       98:   12:        if (x % d == 0) {
+        4:   13:            t = t / d * (d - 1);
+        4:   14:            do {  x /= d;  } while (x % d == 0);
+        -:   15:        }
+       98:   16:        d += 2;
+        -:   17:    }
+        1:   18:    if (x > 1) t = t / x * (x - 1);
+        1:   19:    return t;
+        -:   20:}
+        -:   21:#include <stdio.h>
+        -:   22:#include <stdlib.h>
+        -:   23:
+        1:   24:void cant(){
+        1:   25:	printf("表示できません\n");
+        1:   26:	printf("Hello,World!\n");
+        1:   27:}
+        -:   28:
+        2:   29:int main(int argc, char *argv[])
+        -:   30:{
+        -:   31:    int i;
+        2:   32:	scanf("%d",&i);
+        2:   33:	if(i!=0){
+        1:   34:    	printf("オイラーの関数 φ(%d)\n     ",i);
+        1:   35:		printf("%5d\n", phi(i));
+        1:   36:	}else if(i==0){
+        1:   37:		cant();
+        -:   38:	}
+        2:   39:    return 0;
+        -:   40:}

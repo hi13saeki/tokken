@@ -1,0 +1,44 @@
+        -:    0:Source:chklic2.c
+        -:    0:Graph:chklic2.gcno
+        -:    0:Data:chklic2.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include <time.h>
+        -:    3:#include <stdlib.h>
+        -:    4:#include <string.h>
+        -:    5:
+        -:    6:int ACTIVATION_CODE = 42;
+        -:    7:struct tm EXPIRE_TIME = {0,0,0,10,9-1,2015-1900,0,0,0};
+        -:    8:
+    #####:    9:void renewlicense(void) {
+    #####:   10:    puts("Your license is renewed.");
+    #####:   11:	printf("ok");
+    #####:   12:}
+        -:   13:
+        1:   14:int checklicense(void) {
+        -:   15:  time_t current_time;
+        -:   16:  char code[30],username[30];
+        -:   17:
+        1:   18:  time(&current_time); /* set current time */
+        1:   19:  if (current_time > mktime(&EXPIRE_TIME)) {
+        1:   20:    printf("Your license is expired.\n");
+        1:   21:    printf("Enter username: ");
+        1:   22:    scanf("%s", username);
+        1:   23:    printf("Enter activation code: ");
+        1:   24:    scanf("%s", code);
+        1:   25:    if(strcmp(code,"code") == 0 && strcmp(username,"user") == 0) {
+    #####:   26:	  puts("OK");
+    #####:   27:      renewlicense();
+        -:   28:    } else {
+        1:   29:      printf("Wrong code.\n");
+        1:   30:      return -1;
+        -:   31:    }
+        -:   32:  }
+    #####:   33:  return 0;
+        -:   34:}
+        -:   35:
+        1:   36:int main(void) {
+        1:   37:  checklicense();
+        1:   38:  return 0;
+        -:   39:}

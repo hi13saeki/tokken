@@ -1,0 +1,21 @@
+        -:    0:Source:hugo.c
+        -:    0:Graph:hugo.gcno
+        -:    0:Data:hugo.gcda
+        -:    0:Runs:3
+        -:    0:Programs:1
+        -:    1:#include<stdio.h>
+        -:    2:
+        3:    3:int main(){
+        -:    4:	int num;
+        3:    5:	printf("値を入力してください:");
+        3:    6:	scanf("%d",&num);
+        -:    7:
+        3:    8:	if(num<0){
+        1:    9:		printf("負の値です\n");
+        2:   10:	}else if(num == 0){
+        1:   11:		printf("0です");
+        1:   12:	}else if(num>0){
+        1:   13:		printf("正の値です\n");
+        -:   14:	}
+        3:   15:	return 0;
+        -:   16:}
